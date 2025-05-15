@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Cloud } from "lucide-react";
 import Image from "next/image";
 
 export default function Hero() {
@@ -28,7 +27,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="hero-pattern min-h-screen flex items-center">
+    <section className="hero-pattern min-h-screen flex items-center pt-20">
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -61,9 +60,11 @@ export default function Hero() {
               variants={itemVariants}
               className="flex flex-wrap gap-4 pt-4"
             >
-              <Button className="gradient-bg text-white px-6 py-6 rounded-lg flex items-center gap-2 text-lg">
-                Contact us
-              </Button>
+              <a href="#contact">
+                <Button className="gradient-bg text-white px-6 py-6 rounded-lg flex items-center gap-2 text-lg">
+                  Contact us
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
 

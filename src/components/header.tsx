@@ -83,7 +83,11 @@ export default function Header() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <Button className="gradient-bg">Contact us</Button>
+                <a href="#contact">
+                  <Button className="gradient-bg text-amber-50">
+                    Contact us
+                  </Button>
+                </a>
               </motion.div>
             </div>
             {/* Mobile Menu Button */}
@@ -103,9 +107,9 @@ export default function Header() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden mt-4"
+              className="md:hidden mt-4 w-full"
             >
-              <div className="flex flex-col space-y-4 py-4 bg-blue-300">
+              <div className="flex flex-col space-y-4 py-4 bg-[#dbeafe]">
                 {navLinks.map((link, index) => (
                   <a
                     key={index}
@@ -117,7 +121,9 @@ export default function Header() {
                   </a>
                 ))}
                 <div className="px-4 pt-2">
-                  <Button className="w-full gradient-bg">Contact us</Button>
+                  <a href="#contact">
+                    <Button className="w-full bg-[#4f46e5]">Contact us</Button>
+                  </a>
                 </div>
               </div>
             </motion.div>
