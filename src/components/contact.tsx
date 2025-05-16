@@ -1,15 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Mail, Clock } from "lucide-react";
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import { useState } from "react";
 
 export default function Contact() {
+  const [showModal, setShowModal] = useState(false);
   const contactInfo = [
     {
       icon: <MapPin className="h-6 w-6 text-blue-600" />,
@@ -51,6 +53,28 @@ export default function Contact() {
     },
   ];
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(event.currentTarget);
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+    const name = formData.get("name") as string;
+    const subject = formData.get("subject") as string;
+
+    try {
+      fetch("/api/send-lead", {
+        method: "POST",
+        body: JSON.stringify({ email, message, name, subject }),
+      }).then(() => {
+        form.reset();
+        setShowModal(true);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <section id="contact" className="py-20">
       <div className="container mx-auto px-4 md:px-6">
@@ -82,7 +106,7 @@ export default function Contact() {
           >
             <div className="bg-white rounded-xl shadow-lg p-8 contact-card">
               <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -94,8 +118,10 @@ export default function Contact() {
                     <input
                       type="text"
                       id="name"
+                      name="name"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Your name"
+                      required
                     />
                   </div>
                   <div>
@@ -108,8 +134,10 @@ export default function Contact() {
                     <input
                       type="email"
                       id="email"
+                      name="email"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                       placeholder="your@email.com"
+                      required
                     />
                   </div>
                 </div>
@@ -123,8 +151,10 @@ export default function Contact() {
                   <input
                     type="text"
                     id="subject"
+                    name="subject"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                     placeholder="How can we help?"
+                    required
                   />
                 </div>
                 <div>
@@ -136,9 +166,11 @@ export default function Contact() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Describe your project or question..."
+                    required
                   ></textarea>
                 </div>
                 <Button className="w-full gradient-bg text-white">
@@ -147,6 +179,24 @@ export default function Contact() {
               </form>
             </div>
           </motion.div>
+
+          {/* ✅ Feedback Modal */}
+          {showModal && (
+            <div className="fixed inset-0 bg-white/50 backdrop-blur-sm flex items-center justify-center z-50">
+              <div className="bg-white p-6 rounded-2xl shadow-2xl text-center max-w-sm w-full">
+                <h2 className="text-xl font-semibold mb-2">Message Sent!</h2>
+                <p className="mb-4">
+                  Thank you for reaching out. We'll get back to you soon.
+                </p>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
 
           <div className="space-y-8">
             <motion.div
