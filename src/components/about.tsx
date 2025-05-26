@@ -106,13 +106,13 @@ export default function About() {
               <span className="gradient-text">technology</span>
             </h2>
             <p className="text-lg text-gray-600">
-              We will be guided by the extensive expertise of our founder,who
-              brings over 21 years of experience in the IT field. With a strong
-              commitment to driving innovation and digital transformation across
-              essential economic sectors—including finance, industry,
-              construction, pharmaceuticals, and government—Gabriel will lead
-              our mission to empower businesses to operate more agilely and
-              competitively.
+              We will be guided by the extensive expertise of our founder,{" "}
+              <b>Gabriel Asakawa</b>,who brings over 21 years of experience in
+              the IT field. With a strong commitment to driving innovation and
+              digital transformation across essential economic sectors—including
+              finance, industry, construction, pharmaceuticals, and
+              government—Gabriel will lead our mission to empower businesses to
+              operate more agilely and competitively.
             </p>
             <p className="text-lg text-gray-600">
               Our operations will be shaped by ethical, sustainable, and
