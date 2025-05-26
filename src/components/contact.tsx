@@ -23,11 +23,11 @@ export default function Contact() {
       title: "Email",
       details: "hello@asakawa-it.com",
     },
-    {
-      icon: <Clock className="h-6 w-6 text-blue-600" />,
-      title: "Office Hours",
-      details: "Mon - Fri 8:00 AM – 7:45 PM",
-    },
+    // {
+    //   icon: <Clock className="h-6 w-6 text-blue-600" />,
+    //   title: "Office Hours",
+    //   details: "Mon - Fri 8:00 AM – 7:45 PM",
+    // },
   ];
 
   const faqs = [

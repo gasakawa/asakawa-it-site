@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { CheckCircle, Users, Award, Clock } from "lucide-react";
 import Image from "next/image";
 
@@ -37,7 +36,7 @@ export default function About() {
     {
       title: "Excellence",
       description:
-        "Comprometidos com a qualidade em cada linha de código e em cada interação com o cliente.",
+        "Committed to quality in every line of code and every customer interaction.",
     },
     {
       title: "Collaboration",
@@ -107,18 +106,28 @@ export default function About() {
               <span className="gradient-text">technology</span>
             </h2>
             <p className="text-lg text-gray-600">
-              With over 21 years of experience in the IT field, our mission is
-              to drive innovation and digital transformation across essential
-              economic sectors, including finance, industry, construction,
-              pharmaceuticals, and government. We have successfully assisted our
-              clients in achieving remarkable results.
+              We will be guided by the extensive expertise of our founder,who
+              brings over 21 years of experience in the IT field. With a strong
+              commitment to driving innovation and digital transformation across
+              essential economic sectors—including finance, industry,
+              construction, pharmaceuticals, and government—Gabriel will lead
+              our mission to empower businesses to operate more agilely and
+              competitively.
             </p>
             <p className="text-lg text-gray-600">
-              Our team consists of highly skilled professionals who are
-              passionate about technology and dedicated to delivering
-              exceptional results in every project.
+              Our operations will be shaped by ethical, sustainable, and
+              innovative practices, ensuring close attention to the unique needs
+              of our future clients. Gabriel’s expertise in implementing
+              cutting-edge technologies will help organizations reduce
+              operational costs and boost their capacity for innovation,
+              contributing to a dynamic and sustainable business environment.
             </p>
-
+            <p className="text-lg text-gray-600">
+              As a newly established company, we aim to build strong
+              relationships with our clients, suppliers, employees, and the
+              community. We strive to be recognized for the excellence and
+              quality of our products and services.
+            </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
               {values.map((value, index) => (
                 <motion.div
